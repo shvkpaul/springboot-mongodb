@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "10393ef3-3092-4c10-818a-0b535ccdc8de",
+		"name": "Springboot-mongodb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "create new person",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"personId\": \"1\",\n  \"firstName\": \"Shouvik\",\n  \"lastName\": \"Paul\",\n  \"age\":31,\n  \"hobbies\": [\n    \"playing\"\n  ],\n  \"addresses\": [\n    {\n      \"addressLine1\": \"sodepur\",\n      \"addressLine2\": \"kolkata\",\n      \"city\": \"kolkata\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8090/person",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "person findBy name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/person?name=Shouvik",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"person"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Shouvik"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "person findBy age",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/person/age?minAge=31&maxAge=60",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"person",
+								"age"
+							],
+							"query": [
+								{
+									"key": "minAge",
+									"value": "31"
+								},
+								{
+									"key": "maxAge",
+									"value": "60"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "person by populationByCity",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/person/populationByCity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"person",
+								"populationByCity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "person by oldestPerson",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/person/oldestPerson",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"person",
+								"oldestPerson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "person search with pagination",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/person/search?name=Shouvik&minAge=30&maxAge=35&city=kolkata&page=0&size=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"person",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Shouvik"
+								},
+								{
+									"key": "minAge",
+									"value": "30"
+								},
+								{
+									"key": "maxAge",
+									"value": "35"
+								},
+								{
+									"key": "city",
+									"value": "kolkata"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete person",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/person/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"person",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update person",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Prabhat\",\n  \"lastName\": \"kumar\",\n  \"age\": 29,\n  \"hobbies\": [\n    \"singing\"\n  ],\n  \"addresses\": [\n    {\n      \"addressLine1\": \"bihar\",\n      \"addressLine2\": \"bihar\",\n      \"city\": \"bihar\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8090/person/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"person",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Photo",
+			"item": [
+				{
+					"name": "create photo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/pnl0e65c/Downloads/SQL mindmap.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8090/photo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"photo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get photo by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/photo/6493530deffaea39dd5474b8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"photo",
+								"6493530deffaea39dd5474b8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
